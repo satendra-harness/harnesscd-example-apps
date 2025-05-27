@@ -5,8 +5,8 @@
 replicaCount: 3
 
 image:
-  repository: nginx:stable-perl
-  tag: 0.1
+  repository: nginx
+  tag: stable-perl
   pullPolicy: IfNotPresent
 
 service:
