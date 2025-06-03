@@ -1,0 +1,5 @@
+service:
+  name: dl-k8s-service-1
+  identifier: dlk8sservice1
+  description: updating this service 1
+  tags: {}
