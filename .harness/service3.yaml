@@ -1,0 +1,27 @@
+service:
+  name: service-3
+  identifier: service3
+  orgIdentifier: default
+  projectIdentifier: default_project
+  serviceDefinition:
+    spec:
+      manifests:
+        - manifest:
+            identifier: helms2
+            type: HelmChart
+            spec:
+              store:
+                type: Github
+                spec:
+                  connectorRef: githubapiaccess
+                  gitFetchType: Branch
+                  folderPath: helm-guestbook/Chart.yaml
+                  branch: master
+              subChartPath: ""
+              valuesPaths:
+                - helm-guestbook/values.yaml
+              skipResourceVersioning: false
+              enableDeclarativeRollback: false
+              helmVersion: V3
+              fetchHelmChartMetadata: false
+    type: Kubernetes
