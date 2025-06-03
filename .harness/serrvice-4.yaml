@@ -1,0 +1,5 @@
+service:
+  name: serrvice-4
+  identifier: serrvice4
+  orgIdentifier: default
+  projectIdentifier: dlp1
