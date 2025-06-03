@@ -1,0 +1,7 @@
+service:
+  name: Service-4
+  identifier: Service4
+  orgIdentifier: default
+  projectIdentifier: dlp1
+  description: Some sample service
+  tags: {}
