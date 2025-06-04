@@ -1,0 +1,6 @@
+service:
+  name: dl-service-1
+  identifier: dlservice1
+  orgIdentifier: default
+  projectIdentifier: dlp1
+  description: ""

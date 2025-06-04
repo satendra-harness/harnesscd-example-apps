@@ -1,0 +1,8 @@
+service:
+  name: service-2
+  identifier: service2
+  orgIdentifier: default
+  projectIdentifier: default_project
+  serviceDefinition:
+    spec: {}
+    type: Kubernetes
