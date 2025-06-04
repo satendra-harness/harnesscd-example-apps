@@ -1,0 +1,5 @@
+service:
+  name: service-10
+  identifier: service10
+  orgIdentifier: default
+  projectIdentifier: dlp1
