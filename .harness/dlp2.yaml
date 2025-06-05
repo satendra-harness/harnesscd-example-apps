@@ -1,0 +1,70 @@
+pipeline:
+  name: dl-p2
+  identifier: dlp2
+  projectIdentifier: dlp1
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: deploy
+        identifier: deploy
+        description: ""
+        type: Deployment
+        spec:
+          serviceConfig:
+            serviceRef: dlk8sservice1
+            serviceDefinition:
+              spec:
+                manifests:
+                  - manifest:
+                      identifier: nginx
+                      type: K8sManifest
+                      spec:
+                        store:
+                          type: Github
+                          spec:
+                            connectorRef: dlgitconnector2
+                            gitFetchType: Branch
+                            paths:
+                              - guestbook/guestbook-ui-deployment.yaml
+                              - guestbook/guestbook-ui-svc.yaml
+                            branch: master
+                        valuesPaths:
+                          - guestbook/value.yaml
+                        skipResourceVersioning: false
+                        enableDeclarativeRollback: false
+              type: Kubernetes
+          infrastructure:
+            environmentRef: dlenv1
+            infrastructureDefinition:
+              type: KubernetesDirect
+              spec:
+                connectorRef: dlk8scluster1
+                namespace: default
+                releaseName: <+input>
+            allowSimultaneousDeployments: false
+          execution:
+            steps:
+              - step:
+                  name: Rollout Deployment
+                  identifier: rolloutDeployment
+                  type: K8sRollingDeploy
+                  timeout: 10m
+                  spec:
+                    skipDryRun: false
+                    pruningEnabled: false
+            rollbackSteps:
+              - step:
+                  name: Rollback Rollout Deployment
+                  identifier: rollbackRolloutDeployment
+                  type: K8sRollingRollback
+                  timeout: 10m
+                  spec:
+                    pruningEnabled: false
+        tags: {}
+        failureStrategies:
+          - onFailure:
+              errors:
+                - AllErrors
+              action:
+                type: StageRollback
