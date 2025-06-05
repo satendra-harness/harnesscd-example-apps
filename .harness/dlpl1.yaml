@@ -1,0 +1,61 @@
+pipeline:
+  name: dl-pl-1
+  identifier: dlpl1
+  projectIdentifier: dlp1
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: deploy
+        identifier: deploy
+        description: ""
+        type: Deployment
+        spec:
+          serviceConfig:
+            serviceRef: dlservice1
+            serviceDefinition:
+              spec:
+                manifests:
+                  - manifest:
+                      identifier: guestbookhelm
+                      type: HelmChart
+                      spec:
+                        store:
+                          type: Github
+                          spec:
+                            connectorRef: dlgitconnector2
+                            gitFetchType: Branch
+                            folderPath: helm-guestbook/Chart.yaml
+                            branch: master
+                        subChartPath: ""
+                        valuesPaths:
+                          - helm-guestbook/values.yaml
+                        skipResourceVersioning: false
+                        enableDeclarativeRollback: false
+                        helmVersion: V3
+                        fetchHelmChartMetadata: false
+              type: NativeHelm
+          infrastructure:
+            environmentRef: dlenv1
+            infrastructureDefinition:
+              type: KubernetesDirect
+              spec:
+                connectorRef: dlk8scluster1
+                namespace: default
+                releaseName: <+input>
+            allowSimultaneousDeployments: false
+          execution:
+            steps:
+              - step:
+                  type: HelmDeploy
+                  name: HelmDeploy_1
+                  identifier: HelmDeploy_1
+                  spec: {}
+            rollbackSteps: []
+        tags: {}
+        failureStrategies:
+          - onFailure:
+              errors:
+                - AllErrors
+              action:
+                type: StageRollback
