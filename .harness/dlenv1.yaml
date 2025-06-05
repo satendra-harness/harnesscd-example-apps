@@ -1,0 +1,8 @@
+environment:
+  name: dl-env-1
+  identifier: dlenv1
+  orgIdentifier: default
+  projectIdentifier: dlp1
+  tags: {}
+  type: PreProduction
+  description: ""
