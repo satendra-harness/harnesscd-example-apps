@@ -1,0 +1,5 @@
+service:
+  name: s-33
+  identifier: s33
+  orgIdentifier: default
+  projectIdentifier: project1
