@@ -1,0 +1,6 @@
+pipeline:
+  name: p1
+  identifier: p1
+  projectIdentifier: project1
+  orgIdentifier: default
+  tags: {}
