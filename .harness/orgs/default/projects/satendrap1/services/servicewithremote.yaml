@@ -1,0 +1,5 @@
+service:
+  name: service-with-remote
+  identifier: servicewithremote
+  orgIdentifier: default
+  projectIdentifier: satendrap1
