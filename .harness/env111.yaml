@@ -1,0 +1,6 @@
+environment:
+  name: env-1
+  identifier: env1
+  orgIdentifier: default
+  projectIdentifier: satendrap1
+  type: Production
