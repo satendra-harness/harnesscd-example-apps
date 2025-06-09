@@ -1,0 +1,13 @@
+infrastructureDefinition:
+  name: enfra-1
+  identifier: enfra1
+  orgIdentifier: default
+  projectIdentifier: satendrap1
+  environmentRef: env1
+  deploymentType: NativeHelm
+  type: KubernetesDirect
+  spec:
+    connectorRef: skk8sconnector
+    namespace: satenddra-test
+    releaseName: release-<+INFRA_KEY_SHORT_ID>
+  allowSimultaneousDeployments: false
