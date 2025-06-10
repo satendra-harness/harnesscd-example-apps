@@ -1,0 +1,5 @@
+service:
+  name: s-2
+  identifier: s2
+  orgIdentifier: default
+  projectIdentifier: project1
