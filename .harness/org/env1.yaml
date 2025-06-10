@@ -1,0 +1,4 @@
+environment:
+  name: env-1
+  identifier: env1
+  type: Production
