@@ -1,0 +1,6 @@
+environment:
+  name: env-2
+  identifier: env2
+  orgIdentifier: default
+  projectIdentifier: project1
+  type: Production
