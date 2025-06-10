@@ -1,0 +1,30 @@
+pipeline:
+  name: p-inline-audit
+  identifier: pinlineaudit
+  projectIdentifier: dlp1
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: c-1
+        identifier: c1
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: ShellScript
+                  name: ShellScript_1
+                  identifier: ShellScript_1
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: echo "hi"
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
+        tags: {}
