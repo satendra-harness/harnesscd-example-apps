@@ -1,0 +1,5 @@
+service:
+  name: service-1
+  identifier: service1
+  orgIdentifier: default
+  projectIdentifier: skteting
