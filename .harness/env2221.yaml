@@ -8,7 +8,6 @@ infrastructureDefinition:
   type: KubernetesDirect
   tags: 
     key1: value1
-    key2: value2
   spec:
     connectorRef: dlk8scluster1
     namespace: sk
